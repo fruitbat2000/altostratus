@@ -1,0 +1,22 @@
+{{>nav}}
+<ul class="items songs">
+	{{#if models}}
+	{{#each models}}
+		{{#if this.attributes.album.attributes.images}}
+			<li>
+				<a href="#" data-type="{{this.attributes.type}}" data-id="{{this.cid}}">
+				<img src="{{this.attributes.album.attributes.images.[0]}}" alt="{{this.attributes.name}}"></a>
+				<a href="#">{{this.attributes.name}}</a>
+			</li>
+		{{else}}
+			<li class="no-image">
+				<a href="#" data-type="{{this.attributes.type}}" data-id="{{this.cid}}">
+				<img src="../img/placeholder.jpg" alt="{{this.attributes.name}}"></a>
+				<a href="#">{{this.attributes.name}}</a>
+			</li>
+		{{/if}}
+	{{/each}}
+	{{else}}
+		<p>Your queue is empty. Browse your collection and add some songs!</p>
+	{{/if}}
+</ul>

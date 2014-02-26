@@ -1,0 +1,25 @@
+{{>nav}}
+<a href="#" class="play-album" data-id="{{this.cid}}" data-type="{{this.defaults.type}}"><img src="{{this.attributes.images.[0]}}" alt="{{this.attributes.name}} | {{this.attributes.artist.attributes.name}}"></a>
+<h1>{{this.attributes.name}}</h1>
+<h3>{{this.attributes.artist.attributes.name}}</h3>
+<ul class="items songs">
+	{{#if attributes.songs}}
+	{{#each attributes.songs}}
+		{{#if this.attributes.album.attributes.images}}
+			<li>
+				<a href="#" data-type="{{this.defaults.type}}" data-id="{{this.cid}}">
+				<img src="{{this.attributes.album.attributes.images.[0]}}" alt="{{this.attributes.name}}"></a>
+				<a href="#">{{this.attributes.name}}</a>
+			</li>
+		{{else}}
+			<li class="no-image">
+				<a href="#" data-type="{{this.defaults.type}}" data-id="{{this.cid}}">
+				<img src="../img/placeholder.jpg" alt="{{this.attributes.name}}"></a>
+				<a href="#">{{this.attributes.name}}</a>
+			</li>
+		{{/if}}
+	{{/each}}
+	{{else}}
+		<p>You don't appear to have any songs for this album. Please make sure that they exist and that they're in one of the correct file formats. Currently AltoStratus supports .mp3 and .m4a formats - if your music is in a different format, you could try converting it using a service such as <a href="http://media.io">media.io</a>.</p>
+	{{/if}}
+</ul>

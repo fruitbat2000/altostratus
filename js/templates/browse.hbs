@@ -1,0 +1,23 @@
+{{>nav}}
+<div class="browse">
+	<h1>Browse {{this.defaults.collectionId}}</h1>
+	<ul class="items {{this.defaults.collectionId}} cf">
+		{{#each models}}
+			{{#if this.attributes.images}}
+				<li>
+					<a href="#play" data-type="{{this.defaults.type}}" data-id="{{this.cid}}">
+					<img src="{{this.attributes.images.[0]}}" alt="{{this.attributes.name}}"></a>
+					<a class="title" href="#play">{{this.attributes.name}}</a>
+					<a class="add-to-q" href="#addToQueue">+</a>
+				</li>
+			{{else}}
+				<li class="no-image">
+					<a href="#play" data-type="{{this.defaults.type}}" data-id="{{this.cid}}">
+					<img src="../img/placeholder.jpg" alt="{{this.attributes.name}}"></a>
+					<a class="title" href="#play">{{this.attributes.name}}</a>
+					<a class="add-to-q" href="#addToQueue">+</a>
+				</li>
+			{{/if}}
+		{{/each}}
+	</ul>
+</div>
